@@ -29,6 +29,8 @@ keggPA <- function(hgnc,project_name, kegg.list=NULL){
     Z=2
   }else if(any(hgnc%in%kegg.list[,3])){
     Z=3
+  }else{
+    stop("None of the IDs were able to be mapped to existing Entrez or human gene symbol IDs")
   }
   KEGG.IDS <- hgnc
   hgnc <- intersect(hgnc,kegg.list[,Z])
@@ -63,6 +65,6 @@ keggPA <- function(hgnc,project_name, kegg.list=NULL){
   time <- paste(Sys.time())
   time <- unlist(strsplit(time," ",T))[1]
   
-  write.table(df,file=paste(project_name,time,"KEGG_Pathway_Analysis.csv"),row.names=F,quote=F,sep="\t")
+  write.table(df,file=paste(project_name,time,"KEGG_Pathway_Analysis.tsv"),row.names=F,quote=F,sep="\t")
   return(df)
 }		
