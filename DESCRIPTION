@@ -5,7 +5,7 @@ Authors@R: "Mehran Karimzadeh <mehran.karimzadehreghbati@mail.mcgill.ca> [aut,
     cre]"
 Description: Based on hypergeometric assumption for overrepresentation,
     calculates p-values and FDRs for all kegg hsa pathways.
-Depends: R (>= 3.1.0)
+Depends: R (>= 2.14.0)
 License: GPL-3
 LazyData: true
 Packaged: 2014-04-22 15:16:39 UTC; mkarimza
