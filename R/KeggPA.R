@@ -34,7 +34,7 @@ keggPA <- function(hgnc,project_name, kegg.list=NULL){
   }
   KEGG.IDS <- hgnc
   hgnc <- intersect(hgnc,kegg.list[,Z])
-  pathways=as.character(levels(as.factor(kegg.list$Name.Pathway)))
+  pathways = unique(kegg.list$Name.Pathway)
   df <- t(sapply(pathways,function(x){
     pathways.genes <- unique(as.character(kegg.list[which(kegg.list[,4]==x),Z]))
     our.genes <- unique(as.character(unique(hgnc)))
@@ -67,4 +67,4 @@ keggPA <- function(hgnc,project_name, kegg.list=NULL){
   
   write.table(df,file=paste(project_name,time,"KEGG_Pathway_Analysis.tsv"),row.names=F,quote=F,sep="\t")
   return(df)
-}		
+}
